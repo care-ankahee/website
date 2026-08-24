@@ -1,0 +1,142 @@
+.footer {
+  background: #2d2b2a;
+  color: #eee9e0;
+  padding: 4rem 2rem 2rem;
+  border-top: 4px solid var(--color-peach);
+  margin-top: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-peach);
+}
+
+.description {
+  color: #bbb4a8;
+  font-size: 0.95rem;
+  max-width: 300px;
+}
+
+.columnTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.columnTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-peach);
+}
+
+.linksList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link {
+  color: #bbb4a8;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-peach);
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: #bbb4a8;
+  font-size: 0.95rem;
+}
+
+.crisisAlert {
+  background: rgba(223, 133, 114, 0.08);
+  border: 1px solid rgba(223, 133, 114, 0.2);
+  padding: 1.25rem;
+  border-radius: var(--border-radius-md);
+  margin-top: 1rem;
+}
+
+.crisisTitle {
+  color: var(--color-peach);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.crisisText {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #bbb4a8;
+}
+
+.crisisLink {
+  color: var(--color-gold);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.bottomBar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid #3e3c3b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #bbb4a8;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright {
+  text-align: left;
+}
+
+.legalLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

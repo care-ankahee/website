@@ -1,0 +1,139 @@
+.container {
+  width: 100%;
+}
+
+.headerSection {
+  background: linear-gradient(135deg, rgba(161, 172, 152, 0.05), rgba(118, 147, 151, 0.05));
+  padding: 5rem 2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.title {
+  font-size: 2.8rem;
+  color: var(--color-peach);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #6d665b;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 4rem auto 6rem;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.therapistRow {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 3.5rem;
+  align-items: start;
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.therapistRow:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 4px solid white;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.name {
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pronouns {
+  font-size: 0.85rem;
+  color: #8c8273;
+  background: #eee9e0;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--border-radius-sm);
+}
+
+.role {
+  font-size: 1.25rem;
+  color: var(--color-teal);
+  font-weight: 600;
+}
+
+.bio {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4c463f;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.statBadge {
+  background: #fdfbf7;
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--border-radius-round);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.profileBtn {
+  background: var(--color-peach);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--border-radius-round);
+  font-weight: 700;
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.profileBtn:hover {
+  background: #c9715e;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .therapistRow {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  .imageWrapper {
+    height: 280px;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}

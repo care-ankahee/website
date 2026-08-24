@@ -1,0 +1,120 @@
+.container {
+  width: 100%;
+}
+
+.headerSection {
+  background: linear-gradient(135deg, rgba(233, 169, 76, 0.05), rgba(223, 133, 114, 0.05));
+  padding: 5rem 2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.title {
+  font-size: 2.8rem;
+  color: var(--color-peach);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #6d665b;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 900px;
+  margin: 4rem auto 6rem;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.serviceBlock {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.serviceBlock:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-peach);
+}
+
+.serviceHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.serviceTitle {
+  font-size: 1.8rem;
+  color: #1c1a19;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4c463f;
+}
+
+.ctaBox {
+  background: #fdfaf4;
+  border-radius: var(--border-radius-md);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+  border: 2px dashed var(--color-teal);
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.ctaBtn {
+  background: var(--color-teal);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: var(--border-radius-round);
+  font-weight: 700;
+  display: inline-block;
+  transition: all var(--transition-fast);
+}
+
+.ctaBtn:hover {
+  background: #5f7a7d;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .serviceBlock {
+    padding: 2rem;
+  }
+  .serviceHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

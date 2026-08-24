@@ -1,0 +1,146 @@
+.container {
+  width: 100%;
+}
+
+.headerSection {
+  background: linear-gradient(135deg, rgba(152, 144, 186, 0.05), rgba(118, 147, 151, 0.05));
+  padding: 5rem 2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.title {
+  font-size: 2.8rem;
+  color: var(--color-peach);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #6d665b;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 900px;
+  margin: 4rem auto 6rem;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  color: #1c1a19;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 45px;
+  height: 3px;
+  background-color: var(--color-peach);
+  border-radius: var(--border-radius-round);
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: #4c463f;
+}
+
+.missionVisionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  color: var(--color-teal);
+}
+
+.bulletList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1.05rem;
+  color: #4c463f;
+}
+
+.bullet {
+  color: var(--color-peach);
+  font-weight: bold;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.valueCard {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all var(--transition-normal);
+}
+
+.valueCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.valueTitle {
+  font-size: 1.25rem;
+  color: var(--color-peach);
+}
+
+.valueText {
+  font-size: 0.95rem;
+  color: #5d564c;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .missionVisionGrid, .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

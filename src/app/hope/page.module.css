@@ -1,0 +1,295 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fafaf8;
+}
+
+.hero {
+  background: linear-gradient(135deg, #9fbfc9 0%, #b8a5d1 100%);
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Gallery Section */
+.gallerySection {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.galleryIntro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.galleryIntro h2 {
+  font-size: 2rem;
+  color: #2d2d2d;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.galleryIntro p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.galleryItem {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.galleryItem:hover {
+  transform: translateY(-8px);
+}
+
+.galleryImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Testimonials Section */
+.testimonialsSection {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.therapistHeader {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.therapistInfo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.therapistHeadshot {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.therapistNameRole {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.therapistName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin: 0;
+}
+
+.therapistRole {
+  color: #9fbfc9;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.testimonialCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #9fbfc9;
+  transition: all 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.testimonialContent {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.testimonialText {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+  font-style: italic;
+}
+
+.testimonialMeta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: #999;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.age, .gender {
+  display: inline-block;
+}
+
+/* Image Break Between Sections */
+.imageBreak {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin: 50px 0;
+}
+
+.breakImage {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.breakImageContent {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, #d4a5a5 0%, #c9b9d9 100%);
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+}
+
+.ctaSection h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.ctaSection p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 14px 40px;
+  background: white;
+  color: #d4a5a5;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  background: #fafaf8;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .galleryImage {
+    height: 180px;
+  }
+
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .imageBreak {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .breakImageContent {
+    height: 250px;
+  }
+
+  .therapistInfo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .therapistName {
+    font-size: 1.2rem;
+  }
+
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .ctaSection h2 {
+    font-size: 1.6rem;
+  }
+
+  .ctaSection p {
+    font-size: 1rem;
+  }
+}
