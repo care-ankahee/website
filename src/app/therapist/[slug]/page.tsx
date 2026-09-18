@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
+import BehindTheCouchCarousel from '@/components/BehindTheCouchCarousel';
 import { getTherapistBySlug, getBehindTheCouchQAs } from '@/lib/sanity';
-import { BehindTheCouchQA } from '@/data/db';
 import styles from './page.module.css';
 
 
@@ -125,14 +125,7 @@ export default async function TherapistPage({ params }: TherapistPageProps) {
             <section className={styles.btcContainer}>
               <h2 className={styles.sectionTitle}>Behind the Couch</h2>
               <p style={{ fontSize: '0.9rem', color: '#6d665b', marginTop: '0.5rem' }}>A little glimpse into who I am outside the therapy room.</p>
-              <div className={styles.btcGrid}>
-                {behindTheCouch.map((qa: BehindTheCouchQA, i: number) => (
-                  <div key={i} className={styles.btcItem}>
-                    <h3 className={styles.btcQuestion}>{qa.question}</h3>
-                    <p className={styles.btcAnswer}>{qa.answer}</p>
-                  </div>
-                ))}
-              </div>
+              <BehindTheCouchCarousel items={behindTheCouch} />
             </section>
           )}
 

@@ -1,0 +1,129 @@
+.carousel {
+  margin-top: 1.5rem;
+}
+
+.card {
+  min-height: 230px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background: white;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: cardEnter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.counter {
+  color: var(--color-teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.question {
+  color: var(--color-peach);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 0.7rem 0;
+}
+
+.answer {
+  color: #5d564c;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.controls > button {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-round);
+  background: white;
+  color: var(--color-teal);
+  padding: 0.5rem 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.controls > button:hover {
+  border-color: var(--color-peach);
+  color: var(--color-peach);
+  background: #fffaf7;
+  transform: translateY(-1px);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.dot,
+.activeDot {
+  width: 9px;
+  height: 9px;
+  border: 0;
+  border-radius: 50%;
+  background: #d9d2c8;
+  padding: 0;
+  cursor: pointer;
+  transition: width var(--transition-normal), background-color var(--transition-normal), transform var(--transition-fast);
+}
+
+.dot:hover,
+.activeDot:hover {
+  transform: scale(1.15);
+}
+
+.activeDot {
+  width: 24px;
+  border-radius: var(--border-radius-round);
+  background: var(--color-peach);
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(18px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .controls > button,
+  .dot,
+  .activeDot {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    min-height: 260px;
+    padding: 1.5rem;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+  }
+
+  .dots {
+    order: -1;
+    width: 100%;
+  }
+}
