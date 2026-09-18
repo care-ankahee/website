@@ -17,7 +17,7 @@ export default async function TeamPage() {
       <section className={styles.headerSection}>
         <h1 className={styles.title}>Meet the Ankahee Team</h1>
         <p className={styles.subtitle}>
-          Qualified, warm, and experienced psychologists dedicated to walking beside you through life\'s transitions, patterns, and struggles.
+          Qualified, warm, and experienced psychologists dedicated to walking beside you through life&apos;s transitions, patterns, and struggles.
         </p>
       </section>
 

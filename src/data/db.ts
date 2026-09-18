@@ -61,7 +61,7 @@ export const therapists: Therapist[] = [
       'Complex Trauma Training, PESI',
       'Mindfulness Training, InnerSpace'
     ],
-    experience: '3 years (3,000+ hours of client work)',
+    experience: '3 years (1,500+ hours of client work)',
     specialisations: [
       'Anxiety', 'Depression', 'Grief/Loss', 'Single parenting and couple parenting',
       'ADHD', 'Adverse Childhood/Adulthood Experiences', 'Relationships & Attachment Wounds',
@@ -76,18 +76,18 @@ export const therapists: Therapist[] = [
       'Trauma-Informed Approach'
     ],
     ageGroups: '18-55 years',
-    formats: 'Remote || 50 minutes || 60 minutes || 90 minutes',
+    formats: 'Remote || 50 minutes || 90 minutes',
     languages: ['English', 'Hindi', 'Nepali', 'Marwadi'],
     shortBio: 'Reetika is a counsellor and psychotherapist working from an Internal Family Systems (IFS) lens, alongside DBT, ACT, and attachment-based, trauma-informed care. Through her practice at Ankahee, she works with individuals navigating anxiety, grief, trauma, and self-esteem, with particular attention to experiences shaped by Indian family and cultural dynamics. Her approach centers on helping clients understand the different "parts" of themselves and their protective function with curiosity instead of judgment, so that self-knowledge becomes a source of calm rather than overwhelm.',
     fullBio: [
-      'Reetika is a counsellor and psychotherapist with over 1400 hours of clinical experience. Her therapeutic work is rooted in Internal Family Systems (IFS), which she integrates with DBT, ACT, and attachment theory to offer a trauma-informed, parts-based approach to healing.',
+      'Reetika is a counsellor and psychotherapist with over 1,500 hours of clinical experience. Her therapeutic work is rooted in Internal Family Systems (IFS), which she integrates with DBT, ACT, and attachment theory to offer a trauma-informed, parts-based approach to healing.',
       'Central to Reetika\'s work is the belief that no one is "just" their anxiety, their anger, or their avoidance. Rather, these are parts of a person, each carrying its own history and its own protective purpose. Rather than trying to eliminate or fix these parts, Reetika helps clients build an internal relationship with them: understanding what each part is trying to do, and why.',
       'She works primarily with young adults and adults navigating anxiety, depression, grief, trauma, attachment wounds, and self-esteem struggles, often within the specific texture of Indian family and cultural life. Additionally, themes like blurred boundaries, exam pressure, arranged marriage, and grief that isn\'t always given space to be spoken are given space in her therapy room. She brings both psychological depth and cultural fluency to working through them.',
       'Reetika believes information is power: the more clearly a person can see and understand their own inner world like its parts, its patterns, its protectors, the less overwhelming that world becomes. Her work is about turning confusion into clarity, and clarity into choice.'
     ],
     philosophy: 'Cycles exists because they are excruciating to break. It takes an astronomical amount of pain and courage to disrupt a familiar pattern. Sometimes it seems easier to keep running in the same familiar circles rather than facing the fear of jumping and possibly not landing on your feet.',
     services: ['Individual Therapy', 'Couples Therapy'],
-    availability: 'Monday, Tuesday, Thursday (12 - 8:30 pm), Friday (12 - 6 pm), Saturday & Sunday (12 - 4 pm)',
+    availability: 'Weekdays and Weekends (12 - 8 pm)',
     email: 'reetikashah@ankahee.in',
     fees: '1200 INR for Students || 1500 INR for Professionals || Sliding scale/Discounts available on inquiry',
     bookingFlow: 'WhatsApp/Email -> Consent Form -> Booking Link',
@@ -392,12 +392,12 @@ export const scavengerHuntFeedback = [
 ];
 
 export const cloudShapes = [
-  { name: 'Dinosaur', emoji: '🦖' },
-  { name: 'Teapot', emoji: '🫖' },
-  { name: 'Cat', emoji: '🐱' },
   { name: 'Elephant', emoji: '🐘' },
-  { name: 'Whale', emoji: '🐋' },
+  { name: 'Cat', emoji: '🐱' },
+  { name: 'Dog', emoji: '🐶' },
   { name: 'Bird', emoji: '🐦' },
+  { name: 'Dinosaur', emoji: '🦖' },
+  { name: 'Whale', emoji: '🐋' },
   { name: 'Tree', emoji: '🌳' },
   { name: 'Cupcake', emoji: '🧁' },
   { name: 'Balloon', emoji: '🎈' },

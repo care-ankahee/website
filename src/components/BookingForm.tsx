@@ -67,7 +67,7 @@ export default function BookingForm({
         setErrorMessage(result.error || 'Failed to submit booking inquiry.');
         setStatus('error');
       }
-    } catch (err: any) {
+    } catch {
       setErrorMessage('An error occurred. Please try again.');
       setStatus('error');
     }
@@ -210,6 +210,10 @@ export default function BookingForm({
           />
         </div>
 
+        <div className={styles.disclaimer}>
+          <strong>Please note:</strong> Ankahee offers scheduled therapy and counselling. If you are experiencing a mental health crisis, feel like you might hurt yourself or someone else, or need urgent support, please reach out to your nearest hospital or access instant helpline directories on <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">findahelpline.com</a>. You do not have to carry it alone.
+        </div>
+
         <div className={styles.formGroup}>
           <label className={styles.checkboxLabel}>
             <input 
@@ -238,10 +242,6 @@ export default function BookingForm({
           {status === 'submitting' ? 'Submitting...' : 'Send Inquiry'}
         </button>
       </form>
-
-      <div className={styles.disclaimer}>
-        <strong>Emergency Wording:</strong> Ankahee offers scheduled therapy and counselling. If you are experiencing a mental health crisis, feel like you might hurt yourself or someone else, or need urgent support, please reach out to your nearest hospital or access instant helpline directories on <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'var(--color-peach)' }}>findahelpline.com</a>. You do not have to carry it alone.
-      </div>
     </div>
   );
 }

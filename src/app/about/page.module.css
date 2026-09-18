@@ -113,12 +113,9 @@
 .valueCard {
   background: white;
   border: 2px solid var(--border-color);
-  border-radius: var(--border-radius-lg);
+  border-radius: var(--border-radius-md);
   padding: 2rem;
   box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
   transition: all var(--transition-normal);
 }
 
@@ -131,12 +128,33 @@
 .valueTitle {
   font-size: 1.25rem;
   color: var(--color-peach);
+  font-family: var(--font-display);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.valueTitle::-webkit-details-marker {
+  display: none;
+}
+
+.valueCard[open] .valueTitle span {
+  transform: rotate(90deg);
+}
+
+.valueTitle span {
+  transition: transform var(--transition-fast);
 }
 
 .valueText {
   font-size: 0.95rem;
   color: #5d564c;
   line-height: 1.6;
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {

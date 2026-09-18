@@ -1,0 +1,132 @@
+.form {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formHeader span {
+  color: var(--color-teal);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.formHeader h2 {
+  font-size: 1.8rem;
+  margin-top: 0.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  color: #4c463f;
+  font-weight: 700;
+}
+
+.field input,
+.field textarea {
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background: var(--background);
+  padding: 0.9rem 1rem;
+  width: 100%;
+}
+
+.field textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-peach);
+  box-shadow: 0 0 0 3px rgba(223, 133, 114, 0.14);
+}
+
+.identityChoice {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.identityChoice legend {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0.15rem;
+  color: #4c463f;
+  font-weight: 700;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #4c463f;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.choice input {
+  accent-color: var(--color-teal);
+}
+
+.identityGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.anonymousNote,
+.success,
+.error {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.anonymousNote {
+  color: #6d665b;
+}
+
+.success {
+  color: var(--color-teal);
+}
+
+.error {
+  color: #b3261e;
+}
+
+.form button {
+  align-self: flex-start;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background: var(--color-peach);
+  color: white;
+  padding: 0.85rem 1.5rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.form button:disabled {
+  background: #e5dfd5;
+  color: #8c8273;
+  cursor: not-allowed;
+}
+
+@media (max-width: 680px) {
+  .identityGrid {
+    grid-template-columns: 1fr;
+  }
+}

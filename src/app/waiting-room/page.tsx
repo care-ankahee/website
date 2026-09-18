@@ -350,12 +350,12 @@ export default function WaitingRoom() {
   const handleCloudClick = (id: number) => {
     setClouds(prev => prev.map(c => {
       if (c.id === id && !c.morphed) {
-        const randomShape = cloudShapes[Math.floor(Math.random() * cloudShapes.length)];
+        const shape = cloudShapes[c.id % cloudShapes.length];
         return {
           ...c,
           morphed: true,
-          emoji: randomShape.emoji,
-          label: randomShape.name
+          emoji: shape.emoji,
+          label: shape.name
         };
       }
       return c;
@@ -603,8 +603,8 @@ export default function WaitingRoom() {
                   onClick={() => handleCloudClick(cloud.id)}
                 >
                   {!cloud.morphed ? (
-                    <div className={styles.cloudBody}>
-                      Ankahee Cloud
+                    <div className={`${styles.cloudBody} ${styles[`cloudVariant${cloud.id % 4}`]}`}>
+                      <span>{['Puffy cloud', 'Wispy cloud', 'Little cloud', 'Layered cloud'][cloud.id % 4]}</span>
                     </div>
                   ) : (
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

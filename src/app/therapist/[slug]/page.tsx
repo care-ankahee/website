@@ -4,14 +4,25 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
-import { getTherapistBySlug, getTestimonials, getBehindTheCouchQAs } from '@/lib/sanity';
-import { Testimonial, BehindTheCouchQA } from '@/data/db';
+import { getTherapistBySlug, getBehindTheCouchQAs } from '@/lib/sanity';
+import { BehindTheCouchQA } from '@/data/db';
 import styles from './page.module.css';
 
 
 interface TherapistPageProps {
   params: Promise<{ slug: string }>;
 }
+
+const modalityDescriptions: Record<string, string> = {
+  'Internal Family Systems (IFS)': 'Helps you understand the different parts of yourself with curiosity instead of judgment.',
+  'Cognitive Behaviour Therapy (CBT)': 'Looks at how thoughts, feelings, and actions influence each other, and where small shifts may help.',
+  'Dialectical Behaviour Therapy (DBT)': 'Offers practical skills for emotional intensity, grounding, communication, and distress tolerance.',
+  'Grief Therapy': 'Creates room to carry loss with gentleness, without forcing a fixed timeline for healing.',
+  'Trauma-Informed Approach': 'Moves at a pace that protects safety, choice, and trust while making sense of difficult experiences.',
+  'Cognitive Analytic Therapy (CAT)': 'Maps recurring patterns in relationships and self-understanding so new responses become possible.',
+  'Emotionally Focused Individual Therapy (EFIT)': 'Explores emotional patterns and attachment needs with warmth and clarity.',
+  'Trauma-Informed Relational Practice': 'Keeps safety, context, and relationship at the centre of therapeutic work.'
+};
 
 export default async function TherapistPage({ params }: TherapistPageProps) {
   const resolvedParams = await params;
@@ -21,7 +32,6 @@ export default async function TherapistPage({ params }: TherapistPageProps) {
     notFound();
   }
 
-  const testimonialsList = await getTestimonials(resolvedParams.slug);
   const behindTheCouch = await getBehindTheCouchQAs(resolvedParams.slug);
 
   return (
@@ -99,9 +109,13 @@ export default async function TherapistPage({ params }: TherapistPageProps) {
           {/* Modalities */}
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Therapeutic Modalities</h2>
-            <div className={styles.tags}>
+            <div className={styles.modalityGrid}>
               {therapist.modalities.map((mod: string, i: number) => (
-                <span key={i} className={styles.tag} style={{ background: 'rgba(233, 169, 76, 0.08)', color: 'var(--color-gold)', borderColor: 'rgba(233, 169, 76, 0.2)' }}>{mod}</span>
+                <article key={i} className={styles.modalityCard}>
+                  <span className={styles.modalityNumber}>{String(i + 1).padStart(2, '0')}</span>
+                  <h3>{mod}</h3>
+                  <p>{modalityDescriptions[mod] ?? 'A collaborative approach chosen around your needs, pace, and goals.'}</p>
+                </article>
               ))}
             </div>
           </section>
@@ -116,21 +130,6 @@ export default async function TherapistPage({ params }: TherapistPageProps) {
                   <div key={i} className={styles.btcItem}>
                     <h3 className={styles.btcQuestion}>{qa.question}</h3>
                     <p className={styles.btcAnswer}>{qa.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Testimonials */}
-          {testimonialsList.length > 0 && (
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Client Testimonials</h2>
-              <div className={styles.testimonialsGrid}>
-                {testimonialsList.map((t: Testimonial, i: number) => (
-                  <div key={i} className={styles.testimonialCard}>
-                    <p className={styles.testimonialText}>&ldquo;{t.text}&rdquo;</p>
-                    <p className={styles.testimonialMeta}>Age {t.age} | {t.gender}</p>
                   </div>
                 ))}
               </div>
@@ -160,12 +159,6 @@ export default async function TherapistPage({ params }: TherapistPageProps) {
                 <span className={styles.bullet}>•</span>
                 <div>
                   <strong>Availability:</strong> {therapist.availability}
-                </div>
-              </li>
-              <li className={styles.listItem}>
-                <span className={styles.bullet}>•</span>
-                <div>
-                  <strong>Booking flow:</strong> {therapist.bookingFlow}
                 </div>
               </li>
             </ul>

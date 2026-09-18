@@ -4,49 +4,42 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BookingForm from '@/components/BookingForm';
-import { getTherapists, getTestimonials } from '@/lib/sanity';
-import { Therapist, Testimonial } from '@/data/db';
 import styles from './page.module.css';
 
 
 export default async function Home() {
-  const therapistsList = await getTherapists();
-  const allTestimonials = await getTestimonials();
-  
-  // Slice to show a subset of testimonials on the home page
-  const homeTestimonials = allTestimonials.slice(0, 3);
-
   const services = [
     {
       title: "Individual Therapy",
-      icon: "🌱",
       color: "var(--color-peach)",
-      desc: "Online therapy for adults navigating anxiety, depression, stress, trauma, grief, ADHD, relationship concerns, self-esteem, identity, emotional regulation, and life transitions."
+      desc: "Online therapy for adults navigating anxiety, stress, trauma, grief, ADHD, relationships, identity, and life transitions."
     },
     {
       title: "Couples Therapy",
-      icon: "🤝",
       color: "var(--color-gold)",
-      desc: "Support for couples looking to improve communication, navigate conflict, rebuild trust, strengthen intimacy, and work through life's challenges together."
+      desc: "Support for couples looking to improve communication, navigate conflict, rebuild trust, and strengthen connection."
     },
     {
       title: "Employee Assistance (EAP)",
-      icon: "🏢",
       color: "var(--color-teal)",
-      desc: "Comprehensive mental health support for organisations through counselling, workshops, training programmes, wellbeing initiatives, and customised EAP."
+      desc: "Mental health support for organisations through counselling, workshops, wellbeing initiatives, and customised EAPs."
     },
     {
       title: "Workshops",
-      icon: "🗣️",
       color: "var(--color-purple)",
-      desc: "Interactive workshops on mental health, emotional wellbeing, boundaries, stress management, resilience, and workplace wellbeing for communities and schools."
+      desc: "Interactive sessions on emotional wellbeing, boundaries, stress management, resilience, and workplace wellbeing."
     },
     {
       title: "Training Programmes",
-      icon: "📚",
       color: "var(--color-sage)",
-      desc: "Experiential training programmes for students and early-career mental health professionals on counselling microskills, reflective practice, and meaningful work."
+      desc: "Experiential programmes for students and early-career mental health professionals on counselling microskills and reflective practice."
     }
+  ];
+
+  const bookingSteps = [
+    "Send us an inquiry",
+    "We understand what kind of support you are looking for",
+    "We share the next steps for consent, therapist fit, and scheduling"
   ];
 
   return (
@@ -61,23 +54,56 @@ export default async function Home() {
             <span className={styles.heroTitleHighlight}>Where You Are.</span>
           </h1>
           <p className={styles.heroText}>
-            Ankahee is an online therapy practice offering individual and couples therapy across India in English, Hindi, Marwari, and Nepali. Therapy starts with a conversation.
+            Ankahee is an online therapy practice offering individual and couples therapy across India in English, Hindi, Marwari, and Nepali. Whether you&apos;re feeling overwhelmed, navigating a difficult relationship, or simply trying to understand yourself better, therapy begins with a conversation.
           </p>
           <div className={styles.heroButtons}>
             <Link href="#booking" className={styles.primaryBtn}>Book a Session</Link>
-            <Link href="#team" className={styles.secondaryBtn}>Meet the Therapists</Link>
+            <Link href="/team" className={styles.secondaryBtn}>Meet the Team</Link>
           </div>
         </div>
         <div className={styles.heroIllustration}>
-          <div className={styles.mainBlob}>
+          <div className={styles.logoStage}>
             <Image 
-              src="/main-logo.jpg" 
-              alt="Ankahee Logo Illustration" 
-              width={200} 
-              height={200}
-              className={styles.logoImage}
+              src="/ankahee-logo-design.png"
+              alt="Ankahee"
+              width={520}
+              height={256}
+              priority
+              className={styles.heroLogo}
             />
+            <div className={styles.logoVariants}>
+              <Image
+                src="/ankahee-logo-wordmark.png"
+                alt="Ankahee wordmark"
+                width={360}
+                height={77}
+                className={styles.logoVariantWide}
+              />
+              <Image
+                src="/ankahee-logo-strip.png"
+                alt="Ankahee logo elements"
+                width={430}
+                height={32}
+                className={styles.logoVariantStrip}
+              />
+            </div>
+            <span className={`${styles.logoElement} ${styles.logoElementOne}`} />
+            <span className={`${styles.logoElement} ${styles.logoElementTwo}`} />
+            <span className={`${styles.logoElement} ${styles.logoElementThree}`} />
           </div>
+        </div>
+      </section>
+
+      <section className={`${styles.section} ${styles.welcomeSection}`}>
+        <div className={styles.welcomeContent}>
+          <span className={styles.tagline}>Welcome to Ankahee</span>
+          <h2 className={styles.sectionTitle}>A space for support before things have to fall apart.</h2>
+          <p className={styles.aboutText}>
+            Ankahee did not begin as a business idea. It began with a question we kept coming back to: what might be different if people could access the right support at the right time?
+          </p>
+          <p className={styles.aboutText}>
+            We imagine therapy as one part of a wider support system: a place where you can pause, make sense of what you are carrying, and reconnect with the people, values, places, and parts of yourself that matter to you.
+          </p>
         </div>
       </section>
 
@@ -86,134 +112,18 @@ export default async function Home() {
         <div className={styles.sectionHeader}>
           <span className={styles.tagline}>Support Pathways</span>
           <h2 className={styles.sectionTitle}>How We Can Work Together</h2>
-          <p className={styles.sectionSubtitle}>We shape therapy around you, your goals, and what feels most meaningful, rather than following a fixed method.</p>
+          <p className={styles.sectionSubtitle}>We shape therapy around you, your goals, and what feels meaningful. Choose a pathway to read more.</p>
         </div>
         <div className={styles.servicesGrid}>
           {services.map((svc, i) => (
-            <div key={i} className={styles.serviceCard}>
+            <Link key={i} href="/services" className={styles.serviceCard}>
               <div className={styles.serviceIcon} style={{ backgroundColor: svc.color }}>
-                {svc.icon}
+                <Image src="/short-logo.png" alt="" width={30} height={30} />
               </div>
               <h3 className={styles.serviceTitle}>{svc.title}</h3>
               <p className={styles.serviceText}>{svc.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className={styles.section} style={{ background: '#f8f5ee' }}>
-        <div className={styles.aboutContainer}>
-          <div className={styles.aboutIllustration}>
-            🪺
-          </div>
-          <div className={styles.aboutContent}>
-            <span className={styles.tagline}>Our Origin Story</span>
-            <h2 className={styles.sectionTitle}>The Space We Wanted to Build</h2>
-            <p className={styles.aboutText}>
-              Ankahee did not begin as a business idea. It began with a question we kept coming back to: what might be different if people could access the right support at the right time?
-            </p>
-            <p className={styles.aboutText}>
-              We can become so used to carrying things quietly that we forget we are allowed to put some of them down. We imagine a world where you do not have to wait until things feel unbearable to ask for support.
-            </p>
-            <blockquote className={styles.storyQuote}>
-              &ldquo;Needing a little support along the way does not mean you lack the capacity to find your way. Sometimes, we just need someone to walk beside us for a while.&rdquo;
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section id="team" className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.tagline}>Our Team</span>
-          <h2 className={styles.sectionTitle}>Meet Your Therapists</h2>
-          <p className={styles.sectionSubtitle}>Qualified psychologists with deep clinical experience, dedicated to walking alongside you.</p>
-        </div>
-        <div className={styles.teamGrid}>
-          {therapistsList.map((therapist: Therapist) => (
-            <div key={therapist.slug} className={styles.teamCard}>
-              <div className={styles.imageWrapper}>
-                <Image 
-                  src={therapist.headshot} 
-                  alt={therapist.name} 
-                  fill
-                  style={{ objectFit: 'cover' }}
-                />
-              </div>
-              <div className={styles.teamInfo}>
-                <h3 className={styles.teamName}>
-                  {therapist.name}
-                  <span className={styles.pronouns}>{therapist.pronouns}</span>
-                </h3>
-                <p className={styles.teamRole}>{therapist.role}</p>
-                <p className={styles.teamBio}>{therapist.shortBio}</p>
-                <Link href={`/therapist/${therapist.slug}`} className={styles.viewProfileLink}>
-                  View Full Profile & Q&A &rarr;
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Waiting Room Teaser */}
-      <section className={styles.section}>
-        <div className={styles.waitingRoomTeaser}>
-          <div className={styles.teaserContent}>
-            <span className={styles.tagline}>Interactive Space</span>
-            <h2 className={styles.teaserTitle}>The Waiting Room</h2>
-            <p className={styles.teaserText}>
-              Before or after a session, or anytime you need a quiet pause, step into our Waiting Room. It is a playful, self-guided space designed to help you ground yourself, color your mood, morph some clouds, or doodle your feelings.
-            </p>
-            <Link href="/waiting-room" className={styles.primaryBtn} style={{ alignSelf: 'flex-start' }}>
-              Enter the Waiting Room
+              <span className={styles.serviceLink}>Learn more</span>
             </Link>
-          </div>
-          <div className={styles.teaserAnimation}>
-            <Image 
-              src="/waiting-room/Doodle design.jpeg" 
-              alt="Doodle activity"
-              width={200}
-              height={200}
-              className={styles.teaserImage}
-            />
-            <Image 
-              src="/waiting-room/cloud watcher.jpg" 
-              alt="Cloud watcher activity"
-              width={200}
-              height={200}
-              className={styles.teaserImage}
-            />
-            <Image 
-              src="/waiting-room/color your mood 1.jpg" 
-              alt="Color your mood activity"
-              width={200}
-              height={200}
-              className={styles.teaserImage}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className={styles.section} style={{ background: '#fcfaf6' }}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.tagline}>Kind Words</span>
-          <h2 className={styles.sectionTitle}>Client Experiences</h2>
-          <p className={styles.sectionSubtitle}>Therapy is a collaborative journey. Here is what some of our clients have shared about their growth.</p>
-        </div>
-        <div className={styles.testimonialsGrid}>
-          {homeTestimonials.map((t: Testimonial, idx: number) => (
-            <div key={idx} className={styles.testimonialCard}>
-              <p className={styles.testimonialText}>&ldquo;{t.text}&rdquo;</p>
-              <div className={styles.clientMeta}>
-                <span>Age {t.age} | {t.gender}</span>
-                <span style={{ color: 'var(--color-peach)' }}>
-                  {t.therapistSlug === 'reetika-shah' ? 'Reetika\'s Client' : 'Manvi\'s Client'}
-                </span>
-              </div>
-            </div>
           ))}
         </div>
       </section>
@@ -223,10 +133,21 @@ export default async function Home() {
         <div className={styles.sectionHeader}>
           <span className={styles.tagline}>Getting Started</span>
           <h2 className={styles.sectionTitle}>Request a Consultation</h2>
-          <p className={styles.sectionSubtitle}>Ready to put some down? Send us an inquiry and we\'ll assist you in scheduling.</p>
+          <p className={styles.sectionSubtitle}>Send us an inquiry if you are ready to start your mental health journey.</p>
         </div>
         <div className={styles.bookingGrid}>
           <div className={styles.contactDetails}>
+            <div className={styles.bookingSteps}>
+              <h3 className={styles.contactTitle}>Booking Steps</h3>
+              <ol>
+                {bookingSteps.map((step, index) => (
+                  <li key={step}>
+                    <span>{index + 1}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </div>
             <div className={styles.contactCard}>
               <h3 className={styles.contactTitle}>Our Practice Info</h3>
               <div className={styles.contactList}>
@@ -240,7 +161,7 @@ export default async function Home() {
                 </div>
                 <div className={styles.contactItem}>
                   <span className={styles.contactLabel}>Availability</span>
-                  <span className={styles.contactValue}>6 Days a Week (Except Wednesdays)</span>
+                  <span className={styles.contactValue}>6 Days a Week</span>
                 </div>
                 <div className={styles.contactItem}>
                   <span className={styles.contactLabel}>Session Formats</span>
@@ -251,6 +172,10 @@ export default async function Home() {
           </div>
           <BookingForm />
         </div>
+      </section>
+
+      <section className={`${styles.section} ${styles.footerCta}`}>
+        <Link href="/about" className={styles.aboutLink}>Read the Origin Story</Link>
       </section>
 
       <Footer />

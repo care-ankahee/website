@@ -150,12 +150,19 @@
 }
 
 .disclaimer {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px dashed var(--border-color);
-  font-size: 0.8rem;
-  color: #8c8273;
+  padding: 1rem;
+  border: 1px dashed var(--color-teal);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  color: #5d564c;
   line-height: 1.5;
+  background: #fbf9f4;
+}
+
+.disclaimer a {
+  text-decoration: underline;
+  color: var(--color-peach);
+  font-weight: 700;
 }
 
 @keyframes pop {

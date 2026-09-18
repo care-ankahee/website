@@ -1,295 +1,318 @@
 .container {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   min-height: 100vh;
-  background: #fafaf8;
+  background: var(--background);
+  overflow-x: hidden;
 }
 
 .hero {
-  background: linear-gradient(135deg, #9fbfc9 0%, #b8a5d1 100%);
-  padding: 60px 20px;
+  background: #f8f5ee;
+  padding: 5rem 2rem 4rem;
   text-align: center;
-  color: white;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .heroContent {
-  max-width: 800px;
+  max-width: 820px;
   margin: 0 auto;
 }
 
 .title {
   font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  color: var(--color-peach);
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  opacity: 0.95;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #5d564c;
 }
 
-/* Gallery Section */
-.gallerySection {
-  padding: 60px 20px;
-  max-width: 1200px;
+.wallMediaSection,
+.wallSection,
+.formSection {
+  padding: 4rem 0;
+}
+
+.wallMediaSection {
+  max-width: 1040px;
   margin: 0 auto;
-  width: 100%;
+  padding-inline: 2rem;
 }
 
-.galleryIntro {
+.wallMediaIntro {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto 3.5rem;
   text-align: center;
-  margin-bottom: 50px;
 }
 
-.galleryIntro h2 {
+.wallMediaIntro span {
+  color: var(--color-teal);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.wallMediaIntro h2 {
   font-size: 2rem;
-  color: #2d2d2d;
-  margin-bottom: 15px;
-  font-weight: 600;
+  margin: 0.4rem 0 0.75rem;
 }
 
-.galleryIntro p {
-  font-size: 1.1rem;
-  color: #666;
-  line-height: 1.6;
+.wallMediaIntro p {
+  color: #6d665b;
+  line-height: 1.7;
 }
 
-.gallery {
+.wallGallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.wallGalleryRow {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-bottom: 40px;
+  grid-template-columns: minmax(280px, 520px) minmax(220px, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 6rem);
+  animation: galleryReveal 0.8s ease both;
 }
 
-.galleryItem {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+.wallGalleryRow:nth-child(2n) {
+  margin-left: 5vw;
 }
 
-.galleryItem:hover {
-  transform: translateY(-8px);
+.wallGalleryRowReverse {
+  grid-template-columns: minmax(220px, 1fr) minmax(280px, 520px);
 }
 
-.galleryImage {
+.wallGalleryRowReverse .wallImageCard {
+  grid-column: 2;
+}
+
+.wallGalleryRowReverse .wallGalleryCopy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.wallImageCard {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  aspect-ratio: 1.37;
+  border-radius: 2px 28px 2px 28px;
+  overflow: hidden;
+  border: 2px solid var(--border-color);
+  box-shadow: 10px 10px 0 rgba(118, 147, 151, 0.12);
+  background: #fff;
+}
+
+.wallGalleryRow:nth-child(2n) .wallImageCard {
+  border-radius: 28px 2px 28px 2px;
+  box-shadow: -10px 10px 0 rgba(223, 133, 114, 0.12);
+}
+
+.wallImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
 }
 
-/* Testimonials Section */
-.testimonialsSection {
-  flex: 1;
-  max-width: 1200px;
-  margin: 0 auto;
+.wallGalleryCopy {
+  max-width: 300px;
+}
+
+.wallGalleryNumber {
+  color: var(--color-peach);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.wallGalleryCopy h3 {
+  font-size: 1.55rem;
+  margin: 0.45rem 0 0.6rem;
+}
+
+.wallGalleryCopy p {
+  color: #6d665b;
+  line-height: 1.65;
+}
+
+.sectionIntro {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.sectionIntro span {
+  color: var(--color-teal);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.sectionIntro h2 {
+  font-size: 2rem;
+  margin-top: 0.4rem;
+}
+
+.marquee {
   width: 100%;
-  padding: 40px 20px;
+  overflow: hidden;
 }
 
-.therapistHeader {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  margin-top: 50px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.therapistInfo {
+.testimonialTrack {
   display: flex;
-  gap: 20px;
-  align-items: center;
+  width: max-content;
+  gap: 1.2rem;
 }
 
-.therapistHeadshot {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.testimonialTrack {
+  animation-duration: 58s;
 }
 
-.therapistNameRole {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.therapistName {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #2d2d2d;
-  margin: 0;
-}
-
-.therapistRole {
-  color: #9fbfc9;
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-.testimonialsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 25px;
-  margin-bottom: 50px;
+.marquee:hover .testimonialTrack {
+  animation-play-state: paused;
 }
 
 .testimonialCard {
+  flex: 0 0 270px;
+  height: 168px;
   background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  border-left: 5px solid #9fbfc9;
-  transition: all 0.3s ease;
-}
-
-.testimonialCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-}
-
-.testimonialContent {
-  padding: 25px;
+  border: 2px solid var(--border-color);
+  border-left: 6px solid var(--color-teal);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .testimonialText {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #555;
-  margin: 0;
+  color: #4c463f;
+  font-size: 0.82rem;
+  line-height: 1.42;
   font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .testimonialMeta {
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.55rem;
   display: flex;
-  gap: 15px;
-  font-size: 0.85rem;
-  color: #999;
-  padding-top: 15px;
-  border-top: 1px solid #f0f0f0;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #8c8273;
+  font-size: 0.72rem;
+  font-weight: 800;
 }
 
-.age, .gender {
-  display: inline-block;
-}
-
-/* Image Break Between Sections */
-.imageBreak {
+.formSection {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-inline: 2rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  margin: 50px 0;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
 }
 
-.breakImage {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.bookingPrompt {
+  background: #f8f5ee;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.breakImageContent {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
+.bookingPrompt h2 {
+  font-size: 1.7rem;
 }
 
-/* CTA Section */
-.ctaSection {
-  background: linear-gradient(135deg, #d4a5a5 0%, #c9b9d9 100%);
-  padding: 60px 20px;
-  text-align: center;
-  color: white;
-  margin-top: 40px;
-}
-
-.ctaSection h2 {
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.ctaSection p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  opacity: 0.95;
+.bookingPrompt p {
+  color: #5d564c;
 }
 
 .ctaButton {
   display: inline-block;
-  padding: 14px 40px;
-  background: white;
-  color: #d4a5a5;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  align-self: flex-start;
+  padding: 0.85rem 1.4rem;
+  background: var(--color-teal);
+  color: white;
+  border-radius: var(--border-radius-sm);
+  font-weight: 800;
+  box-shadow: var(--shadow-sm);
 }
 
 .ctaButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  background: #fafaf8;
+  background: #5f7a7d;
+  transform: translateY(-1px);
 }
 
-@media (max-width: 768px) {
-  .title {
-    font-size: 2rem;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
   }
-
-  .subtitle {
-    font-size: 1rem;
+  to {
+    transform: translateX(calc(-50% - 0.6rem));
   }
+}
 
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
+@keyframes galleryReveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  .galleryImage {
-    height: 180px;
-  }
-
-  .testimonialsGrid {
+@media (max-width: 900px) {
+  .formSection {
     grid-template-columns: 1fr;
   }
+}
 
-  .imageBreak {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .breakImageContent {
-    height: 250px;
-  }
-
-  .therapistInfo {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .therapistName {
-    font-size: 1.2rem;
-  }
-
+@media (max-width: 520px) {
   .hero {
-    padding: 40px 20px;
+    padding: 4rem 1.25rem 3rem;
   }
 
-  .ctaSection h2 {
-    font-size: 1.6rem;
+  .title {
+    font-size: 2.2rem;
   }
 
-  .ctaSection p {
-    font-size: 1rem;
+  .wallMediaSection {
+    padding-inline: 1.25rem;
+  }
+
+  .wallGalleryRow,
+  .wallGalleryRowReverse {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-left: 0;
+  }
+
+  .wallGalleryRowReverse .wallImageCard,
+  .wallGalleryRowReverse .wallGalleryCopy {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .wallGalleryCopy {
+    max-width: 100%;
+    padding-inline: 0.5rem;
+  }
+
+  .testimonialCard {
+    flex-basis: 245px;
+    height: 160px;
   }
 }

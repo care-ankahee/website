@@ -404,6 +404,8 @@
 
 .cloudBody {
   background: white;
+  min-width: 172px;
+  min-height: 64px;
   padding: 1.5rem 2.5rem;
   border-radius: var(--border-radius-round);
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -432,6 +434,76 @@
   height: 50px;
   background: white;
   border-radius: 50%;
+}
+
+.cloudVariant1 {
+  min-width: 220px;
+  min-height: 44px;
+  border-radius: 65% 35% 42% 58%;
+  padding: 1rem 3.25rem;
+  background: #f9fcff;
+  transform: scaleY(0.72) rotate(-3deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05), 0 12px 0 rgba(255,255,255,0.7);
+}
+
+.cloudVariant1::before {
+  left: 42px;
+  top: -24px;
+  width: 56px;
+  height: 56px;
+}
+
+.cloudVariant1::after {
+  right: 46px;
+  top: -12px;
+  width: 32px;
+  height: 32px;
+}
+
+.cloudVariant2 {
+  min-width: 128px;
+  min-height: 92px;
+  border-radius: 42% 58% 62% 38%;
+  padding: 2rem 1.5rem 1rem;
+  background: #fffdfb;
+  transform: scale(0.8) rotate(5deg);
+}
+
+.cloudVariant2::before {
+  left: 12px;
+  top: -9px;
+  width: 28px;
+  height: 28px;
+}
+
+.cloudVariant2::after {
+  right: 8px;
+  top: -28px;
+  width: 62px;
+  height: 62px;
+}
+
+.cloudVariant3 {
+  min-width: 190px;
+  min-height: 78px;
+  border-radius: 48% 52% 35% 65%;
+  padding: 1.8rem 2.2rem 1.1rem;
+  background: #f7fbfc;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05), 18px 8px 0 rgba(222, 235, 242, 0.9);
+}
+
+.cloudVariant3::before {
+  left: 28px;
+  top: -29px;
+  width: 64px;
+  height: 64px;
+}
+
+.cloudVariant3::after {
+  right: 2px;
+  top: -8px;
+  width: 30px;
+  height: 30px;
 }
 
 .morphedEmoji {

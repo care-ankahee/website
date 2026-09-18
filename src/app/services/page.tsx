@@ -2,37 +2,37 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './page.module.css';
+import { getTestimonials } from '@/lib/sanity';
+import { Testimonial } from '@/data/db';
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const testimonials = await getTestimonials();
+  const movingTestimonials = [...testimonials, ...testimonials];
   const serviceDetails = [
     {
       title: "Individual Therapy",
-      icon: "🌱",
       color: "var(--color-peach)",
       desc: "Online therapy for adults navigating anxiety, depression, stress, trauma, grief, ADHD, relationship concerns, self-esteem, identity, emotional regulation, and life transitions. We begin by understanding what brings you here, while also exploring the experiences, relationships, and environments that have shaped who you are."
     },
     {
       title: "Couples Therapy",
-      icon: "🤝",
       color: "var(--color-gold)",
       desc: "Support for couples looking to improve communication, navigate conflict, rebuild trust, strengthen intimacy, and work through life's challenges together. We work collaboratively to help both partners understand recurring patterns and find ways of connecting that feel secure, supportive, and meaningful."
     },
     {
       title: "Employee Assistance Programmes (EAP)",
-      icon: "🏢",
       color: "var(--color-teal)",
       desc: "Comprehensive mental health support for organisations through counselling, interactive workshops, training programmes, wellbeing initiatives, and custom-designed employee assistance programmes tailored to employee needs."
     },
     {
       title: "Workshops",
-      icon: "🗣️",
       color: "var(--color-purple)",
       desc: "Interactive workshops on mental health, emotional wellbeing, relationships, boundaries, stress management, resilience, and workplace wellbeing. Customised workshops are available for community groups, educational institutions, and corporate teams."
     },
     {
       title: "Training Programmes",
-      icon: "📚",
       color: "var(--color-sage)",
       desc: "Experiential training programmes for students, early-career mental health professionals, and organisations on counselling microskills, therapeutic relationships, reflective practice, and the foundational elements of meaningful therapeutic work."
     }
@@ -54,7 +54,7 @@ export default function ServicesPage() {
           <div key={i} className={styles.serviceBlock}>
             <div className={styles.serviceHeader}>
               <div className={styles.iconWrapper} style={{ backgroundColor: service.color }}>
-                {service.icon}
+                <Image src="/short-logo.png" alt="" width={34} height={34} />
               </div>
               <h2 className={styles.serviceTitle}>{service.title}</h2>
             </div>
@@ -64,9 +64,26 @@ export default function ServicesPage() {
           </div>
         ))}
 
+        <section className={styles.testimonialsSection} aria-label="Client reflections">
+          <div className={styles.testimonialsIntro}>
+            <span>Client reflections</span>
+            <h2>Support can make room for change.</h2>
+          </div>
+          <div className={styles.testimonialsMarquee}>
+            <div className={styles.testimonialsTrack}>
+              {movingTestimonials.map((testimonial: Testimonial, index: number) => (
+                <article key={`${testimonial.text}-${index}`} className={styles.testimonialCard}>
+                  <p>&ldquo;{testimonial.text}&rdquo;</p>
+                  <span>{testimonial.age} years old · {testimonial.gender}</span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <div className={styles.ctaBox}>
           <p className={styles.ctaText}>
-            Unsure which service fits your current requirements? Let\'s talk and figure it out together.
+            Unsure which service fits your current requirements? Let&apos;s talk and figure it out together.
           </p>
           <Link href="/#booking" className={styles.ctaBtn}>
             Book a Consultation
