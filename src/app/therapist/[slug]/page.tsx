@@ -120,19 +120,10 @@ export default async function TherapistPage({ params }: TherapistPageProps) {
             </div>
           </section>
 
-          {/* Behind the Couch Q&A */}
-          {behindTheCouch.length > 0 && (
-            <section className={styles.btcContainer}>
-              <h2 className={styles.sectionTitle}>Behind the Couch</h2>
-              <p style={{ fontSize: '0.9rem', color: '#6d665b', marginTop: '0.5rem' }}>A little glimpse into who I am outside the therapy room.</p>
-              <BehindTheCouchCarousel items={behindTheCouch} />
-            </section>
-          )}
-
         </main>
 
         {/* Sidebar Info & Booking Form */}
-        <aside style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+        <aside className={styles.sidebar}>
           <div className={styles.btcContainer} style={{ padding: '2rem' }}>
             <h3 className={styles.sectionTitle} style={{ fontSize: '1.3rem', marginBottom: '1.25rem' }}>Session Details</h3>
             <ul className={styles.list}>
@@ -163,6 +154,15 @@ export default async function TherapistPage({ params }: TherapistPageProps) {
               { name: `${therapist.name} (${therapist.role})`, slug: therapist.slug }
             ]}
           />
+
+          {/* Behind the Couch Q&A */}
+          {behindTheCouch.length > 0 && (
+            <section className={styles.btcContainer}>
+              <h2 className={styles.sectionTitle}>Behind the Couch</h2>
+              <p style={{ fontSize: '0.9rem', color: '#6d665b', marginTop: '0.5rem' }}>A little glimpse into who I am outside the therapy room.</p>
+              <BehindTheCouchCarousel items={behindTheCouch} />
+            </section>
+          )}
         </aside>
       </div>
 

@@ -139,7 +139,7 @@ export default function BookingForm({
             />
           </div>
           <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor="phone">WhatsApp Phone Number</label>
+            <label className={styles.label} htmlFor="phone">Phone Number</label>
             <input 
               type="tel" 
               id="phone" 
@@ -154,7 +154,7 @@ export default function BookingForm({
 
         <div className={styles.row}>
           <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor="contactMethod">Preferred Contact Method</label>
+            <label className={styles.label} htmlFor="contactMethod"> Contact Method</label>
             <select 
               id="contactMethod" 
               name="contactMethod" 

@@ -3,8 +3,9 @@
 }
 
 .card {
-  min-height: 230px;
-  padding: 2rem;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  padding: 1.5rem;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-md);
   background: white;
@@ -12,6 +13,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: auto;
   animation: cardEnter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -24,15 +26,15 @@
 
 .question {
   color: var(--color-peach);
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.6vw, 1.15rem);
   line-height: 1.4;
   margin: 0.7rem 0;
 }
 
 .answer {
   color: #5d564c;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .controls {
@@ -114,7 +116,6 @@
 
 @media (max-width: 600px) {
   .card {
-    min-height: 260px;
     padding: 1.5rem;
   }
 

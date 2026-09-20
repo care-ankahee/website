@@ -90,6 +90,12 @@
   gap: 3.5rem;
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .section {
   display: flex;
   flex-direction: column;
@@ -202,7 +208,8 @@
   background: #fbf9f4;
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius-lg);
-  padding: 2.5rem;
+  padding: 2rem;
+  width: 100%;
 }
 
 .btcGrid {
