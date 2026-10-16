@@ -71,22 +71,6 @@ export default async function Home() {
               priority
               className={styles.heroLogo}
             />
-            <div className={styles.logoVariants}>
-              <Image
-                src="/ankahee-logo-wordmark.png"
-                alt="Ankahee wordmark"
-                width={360}
-                height={77}
-                className={styles.logoVariantWide}
-              />
-              <Image
-                src="/ankahee-logo-strip.png"
-                alt="Ankahee logo elements"
-                width={430}
-                height={32}
-                className={styles.logoVariantStrip}
-              />
-            </div>
             <span className={`${styles.logoElement} ${styles.logoElementOne}`} />
             <span className={`${styles.logoElement} ${styles.logoElementTwo}`} />
             <span className={`${styles.logoElement} ${styles.logoElementThree}`} />
