@@ -8,7 +8,7 @@ import { Resource } from '@/data/db';
 interface ResourcesListProps {
   initialResources: Resource[];
 }
-
+// Resource List
 export default function ResourcesList({ initialResources }: ResourcesListProps) {
   const [categoryFilter, setCategoryFilter] = useState<'all' | 'for-clients' | 'for-therapists'>('all');
   const [typeFilter, setTypeFilter] = useState<'all' | 'blog' | 'reflection' | 'worksheet'>('all');
